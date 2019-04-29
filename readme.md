@@ -23,6 +23,8 @@ This solution has 3 projects
 
 A sample console application that runs as soon as it's container starts.  The client uses the IronPdfDockerLib to create a simple html string attempts to generate a Pdf.
 
+When the container starts it will attempt to create a pdf via a call to the IronPdfDockerLib
+
 
 ## IronPdfDockerLib
 
@@ -32,14 +34,14 @@ This represents a sample of a lib project for the business layer.  It uses IronP
 Line 43  htmlToPdf.RenderHtmlAsPdf(GetHtml())
 ```
 
-When the container starts it will attempt to create a pdf.
+
 
 
 ## IronPdfDockerWebApi
 
 Contains a rest API contains the default controller of `/api/values`, you can use this endpoint or `/api/values/1` to execute the same code in the console app.
 
-
+Call the same IronPdfDockerLib project as the Console app
 
 ## Running the container.
 
