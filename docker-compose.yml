@@ -8,10 +8,15 @@ services:
       dockerfile: IronPdfDockerClient/Dockerfile
 
   ironpdfdockerwebapi:
-    image: ${DOCKER_REGISTRY-}ironpdfdockerwebapi
+    image: ${DOCKER_REGISTRY-}ironpdfdockerwebapi    
     build:
       context: .
       dockerfile: IronPdfDockerWebApi/Dockerfile
     ports:
         - 6008:80
+    volumes:
+        - /tmp/iron:/tmp
+    environment:
+      LD_DEBUG: 'none'
+      TESTING: 'yes'
 

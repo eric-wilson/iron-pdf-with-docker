@@ -7,6 +7,12 @@ namespace IronPdfDockerLib
     {
         public Generator()
         {
+
+            var tmp = System.IO.Path.GetTempPath();
+            IronPdf.Installation.TempFolderPath = tmp;
+
+            Log($"Temp Path set to: {tmp}");
+
             //if (string.IsNullOrWhiteSpace(License.LicenseKey))
             {
                 // set the license key / get it from appsettings or environment variables
@@ -57,6 +63,10 @@ namespace IronPdfDockerLib
                 Log(ex.ToString());
 
 
+                TestRead();
+                TestWrite();
+
+
                 return $"Failed to produce file: {path}.  Error: {ex.Message}";
             }
 
@@ -87,6 +97,81 @@ namespace IronPdfDockerLib
         private void Log(string message)
         {
             Console.WriteLine($"[Pdf Generator]: {message}");
+        }
+
+
+
+
+        public void TestRead()
+        {
+            var dir = IronPdf.Installation.TempFolderPath;
+
+            Log($"Testing dir {dir}");
+
+            if(System.IO.Directory.Exists(dir))
+            {
+                var files = System.IO.Directory.GetFiles(dir);
+                var first = "";
+                foreach(var f in files)
+                {
+                    if (string.IsNullOrWhiteSpace(first)) { first = f; }
+                    Log($"Found Files {f}");
+                }
+
+
+                try
+                {
+                    // try to read a file
+                    var text = System.IO.File.ReadAllText(first);
+
+                    var max = 100;
+                    if (text.Length < max) max = text.Length;
+
+                    Log($"Read file {first} ok {text.Substring(0, max)}");
+
+                } catch (Exception ex)
+                {
+                    Log($"Error reading file {ex.Message}");
+                }
+            }
+            else
+            {
+
+                Log($"Directory Not Found During test {dir}");
+            }
+        }
+
+
+        public void TestWrite()
+        {
+            var dir = IronPdf.Installation.TempFolderPath;
+
+            Log($"Testing write on dir {dir}");
+
+            if (System.IO.Directory.Exists(dir))
+            {
+                var text = "This is a test write";
+
+
+                try
+                {
+                    var fileName = System.IO.Path.Combine(dir, $"test-{System.DateTime.UtcNow.Ticks}.txt");
+                    System.IO.File.WriteAllText(fileName, text);
+
+                    Log($"Write sucess {fileName}");
+                }
+                catch (Exception ex)
+                {
+                    Log($"Write Failed {ex.Message}");
+                }
+                
+
+            }
+            else
+            {
+
+                Log($"Directory Not Found During test {dir}");
+            }
         }
     }
 }

@@ -15,9 +15,28 @@ namespace IronPdfDockerWebApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment hostingEnvironment)
         {
-            Configuration = configuration;
+
+            var builder = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
+                .SetBasePath(hostingEnvironment.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{hostingEnvironment}.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.hosting-{hostingEnvironment}.json", optional: true, reloadOnChange: true)                
+                .AddEnvironmentVariables()
+                //.AddCommandLine(CommandLineArgs)
+                ;
+            Configuration = builder.Build();
+
+
+            var args = Configuration.AsEnumerable();
+
+            // display current configurations
+            foreach (var arg in args)
+            {
+                Console.WriteLine($"key {arg.Key} value {arg.Value}");
+            }
+
         }
 
         public IConfiguration Configuration { get; }
