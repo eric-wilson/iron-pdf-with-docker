@@ -1,0 +1,40 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronPdfDockerClient", "IronPdfDockerClient\IronPdfDockerClient.csproj", "{FFE10FBA-50B9-4077-BF14-2CD9DA04A116}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AD864D57-6E69-401A-B3D5-95111728EA12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronPdfDockerWebApi", "IronPdfDockerWebApi\IronPdfDockerWebApi.csproj", "{BDA4E8E8-65FB-4903-9795-748AB8935191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronPdfDockerLib", "IronPdfDockerLib\IronPdfDockerLib.csproj", "{D215D266-1DB8-48FB-B37F-B63BA3C1B871}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3020543B-F7CC-4803-9ADF-37E325600146}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFE10FBA-50B9-4077-BF14-2CD9DA04A116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE10FBA-50B9-4077-BF14-2CD9DA04A116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE10FBA-50B9-4077-BF14-2CD9DA04A116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE10FBA-50B9-4077-BF14-2CD9DA04A116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD864D57-6E69-401A-B3D5-95111728EA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD864D57-6E69-401A-B3D5-95111728EA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD864D57-6E69-401A-B3D5-95111728EA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD864D57-6E69-401A-B3D5-95111728EA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA4E8E8-65FB-4903-9795-748AB8935191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA4E8E8-65FB-4903-9795-748AB8935191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA4E8E8-65FB-4903-9795-748AB8935191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA4E8E8-65FB-4903-9795-748AB8935191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D215D266-1DB8-48FB-B37F-B63BA3C1B871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D215D266-1DB8-48FB-B37F-B63BA3C1B871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D215D266-1DB8-48FB-B37F-B63BA3C1B871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D215D266-1DB8-48FB-B37F-B63BA3C1B871}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

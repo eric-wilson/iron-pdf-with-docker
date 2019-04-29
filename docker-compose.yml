@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  ironpdfdockerclient:
+    image: ${DOCKER_REGISTRY-}ironpdfdockerclient
+    build:
+      context: .
+      dockerfile: IronPdfDockerClient/Dockerfile
+
+  ironpdfdockerwebapi:
+    image: ${DOCKER_REGISTRY-}ironpdfdockerwebapi
+    build:
+      context: .
+      dockerfile: IronPdfDockerWebApi/Dockerfile
+    ports:
+        - 6008:80
+
